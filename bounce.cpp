@@ -240,8 +240,8 @@ void initBallsTest1() {
 void InitializeMyStuff(int numBalls) {
 	srand(time(NULL));
 
-	// initBalls(numBalls);
-	initBallsTest1();
+	initBalls(numBalls);
+	// initBallsTest1();
 }
 
 int main(int argc, char** argv) {
