@@ -36,7 +36,7 @@ void BouncyBall::bounce(double dt, int width, int height) {
 	}
 }
 
-void BouncyBall::update(double dt, int width, int height) {
+void BouncyBall::update(double dt, int width, int height, double resistance) {
 	static Vector2 prevVel;
 	this->bounce(dt, width, height);
 
@@ -71,6 +71,8 @@ void BouncyBall::update(double dt, int width, int height) {
 		// Rolling speed
 		this->drot = this->vel.x / this->radius;
 	}
+
+	this->vel *= (1 - resistance);
 
 	prevVel = this->vel;
 

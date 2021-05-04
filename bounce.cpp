@@ -26,6 +26,8 @@ Vector2 mouse;
 Vector2 mouseDownPos;
 bool mouseDown = false;
 
+double resistance = 0;
+
 // List of balls
 std::vector<BouncyBall> balls = {};
 
@@ -107,7 +109,7 @@ void display(void) {
 
 	// Draw balls
 	for (auto ball = balls.begin(); ball != balls.end(); ++ball) {
-		ball->update(dt, screenX, screenY);
+		ball->update(dt, screenX, screenY, resistance);
 	}
 
 	// Draw slingshot launch vector
@@ -134,6 +136,14 @@ void keyboard(unsigned char c, int x, int y) {
 		for (size_t i = 0; i < balls.size(); i++) {
 			balls[i].gravity *= -1;
 		}
+		break;
+	case 'o': // Increase resistance
+		resistance += .05;
+		if (resistance >= 1)
+			resistance = 0.99;
+		break;
+	case 'p': // Reset resistance to 0
+		resistance = 0;
 		break;
 	default:
 		// std::cout << (int)c << std::endl;

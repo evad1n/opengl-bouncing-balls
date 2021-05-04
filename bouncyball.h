@@ -27,7 +27,7 @@ public:
 
 	BouncyBall(Vector2 startPos, Vector2 startVel, double radius, COLOR color, double gravity = 9.8);
 	~BouncyBall();
-	void update(double dt, int width, int height);
+	void update(double dt, int width, int height, double resistance);
 	void draw();
 	void bounce(double dt, int width, int height);
 
